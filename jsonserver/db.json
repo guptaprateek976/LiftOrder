@@ -1,0 +1,47 @@
+{
+  "floors": [
+    {
+      "id": "6",
+      "floor_no": "6",
+      "isSelectUp": false,
+      "isSelectDown": false
+    },
+    {
+      "id": "5",
+      "floor_no": "5",
+      "isSelectUp": false,
+      "isSelectDown": false
+    },
+    {
+      "id": "4",
+      "floor_no": "4",
+      "isSelectUp": false,
+      "isSelectDown": false
+    },
+    {
+      "id": "3",
+      "floor_no": "3",
+      "isSelectUp": false,
+      "isSelectDown": false
+    },
+    {
+      "id": "2",
+      "floor_no": "2",
+      "isSelectUp": false,
+      "isSelectDown": false
+    },
+    {
+      "id": "1",
+      "floor_no": "1",
+      "isSelectUp": false,
+      "isSelectDown": false
+    },
+    {
+      "id": "0",
+      "floor_no": "0",
+      "isSelectUp": false,
+      "isSelectDown": false
+    }
+  ]
+  
+}
