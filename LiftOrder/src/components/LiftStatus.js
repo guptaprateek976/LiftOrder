@@ -8,8 +8,8 @@ const LiftStatus = () => {
     const {state:{floors,execOrder}, getFloors,updateFloors,updateOrder}= useContext(LiftContext);
     
     const order = [];
-    const [upArray, setupArray] = useState([]);
-    const [downArray, setDownArray] = useState([]);
+    let [upArray, setupArray] = useState([]);
+    let [downArray, setDownArray] = useState([]);
 
 
     useEffect(()=> {
@@ -48,10 +48,18 @@ const LiftStatus = () => {
     }
 
     const selectDataUp = (item,index) => {
-
-        upArray.push(item.id);
-        if(item.id<upArray[upArray.length-2])
+        if(item.isSelectUp!=true){
+            upArray.push(item.id);
+            if(item.id<upArray[upArray.length-2])
             upArray.sort();
+        }
+        else{
+            upArray= upArray.filter(function(e){
+                return e!=item.id;
+            });
+            setupArray(upArray);
+        }
+        
 
         const newData= floors.map(e => {
             if (e.id== item.id){
@@ -71,9 +79,18 @@ const LiftStatus = () => {
 
     const selectDataDown = (item,index) => {
 
-        downArray.push(item.id);
-             if(item.id<downArray[downArray.length-2])
-                downArray.sort()
+        if(item.isSelectDown!=true){
+            downArray.push(item.id);
+            if(item.id<downArray[downArray.length-2])
+               downArray.sort()
+        }
+        else{
+            downArray= downArray.filter(function(e){
+                return e!=item.id;
+            });
+            setDownArray(downArray)
+        }
+       
 
         const newData= floors.map(e => {
             if (e.id== item.id){
@@ -96,15 +113,9 @@ const LiftStatus = () => {
             order.push(upArray.shift());
         }
         while(downArray.length>0){
-            if(order[order.length-1]==downArray[downArray.length-1])
-                downArray.pop();
-            else
                 order.push(downArray.pop());
         }
-        console.log('order', order);
         updateOrder(order);
-       // resetStatus();
-
     }
 
     return(

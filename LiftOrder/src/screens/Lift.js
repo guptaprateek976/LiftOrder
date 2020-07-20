@@ -12,9 +12,7 @@ const Lift = ({navigation}) => {
     const {state:{floors,execOrder}, resetOrder}= useContext(LiftContext);
 
     useEffect(()=>{
-        console.log('resrt')
         const unsubscribe = navigation.addListener('focus', () => {
-            console.log('reset')
             resetOrder();
           });
       

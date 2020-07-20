@@ -1,6 +1,5 @@
 import createDataContext from './createDataContext';
-import getData from '../api/getData';
- 
+import Data from '../db.json'
 const LiftReducer = (state, action) => {
     switch(action.type){
         case 'get_Floors':
@@ -19,9 +18,9 @@ const LiftReducer = (state, action) => {
 }
 
 const getFloors = (dispatch) => {
-    return async() =>{
-        const response = await getData.get('/floors');
-        dispatch({type: 'get_Floors', payload: response.data})
+    return () =>{
+        const response = Data.floors
+        dispatch({type: 'get_Floors', payload: response})
     }
 }
 
